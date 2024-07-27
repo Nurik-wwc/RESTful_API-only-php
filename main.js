@@ -1,7 +1,7 @@
 let selectedId = null;
 
 async function getPosts() {
-  let res = await fetch(`http://localhost/RESTful_API/php/posts`);
+  let res = await fetch(`http://localhost/RESTful_API_php/php/posts`);
   let posts = await res.json();
 
   document.querySelector('.post-list').innerHTML = '';
@@ -29,7 +29,7 @@ async function addPost() {
   myForm.append('title', title);
   myForm.append('content', content);
   
-  const res = await fetch(`http://localhost/RESTful_API/php/posts`, {
+  const res = await fetch(`http://localhost/RESTful_API_php/php/posts`, {
     method: 'POST',
     body: myForm
   });
@@ -38,7 +38,7 @@ async function addPost() {
 }
 
 async function removePost(id) {
-  const res = await fetch(`http://localhost/RESTful_API/php/posts/${id}`, {
+  const res = await fetch(`http://localhost/RESTful_API_php/php/posts/${id}`, {
     method: "DELETE"
   });
 
@@ -60,7 +60,7 @@ async function updatePost(id) {
     content: content
   } 
 
-  const res = await fetch(`http://localhost/RESTful_API/php/posts/${selectedId}`, {
+  const res = await fetch(`http://localhost/RESTful_API_php/php/posts/${selectedId}`, {
     method: 'PATCH',
     body: JSON.stringify(data)
   });
